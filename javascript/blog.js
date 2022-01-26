@@ -1,9 +1,13 @@
 /**
- * Represents a blog
- *
- * @param {string} title - Title of the blog
+ * A class which handles one array with blogposts
+ * @class
  */
 class Blog {
+	/**
+	 * Creates a new array with blogs. Gets the list from localStorage if there is any.
+	 * @constructor
+	 * @param {string} title - Title of the blog
+	 */
 	constructor(title) {
 		this.title = title;
 
