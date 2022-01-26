@@ -1,3 +1,5 @@
+let assert = chai.assert;
+
 describe("Handle Blogs", function () {
 	let blogList = new Blog("test blogg");
 	beforeEach(() => {
