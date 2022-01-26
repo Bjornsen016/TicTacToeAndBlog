@@ -5,11 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Blog</title>
 </head>
 
 <body>
+    <header id="title">Min Blogg</header>
+    <div class="main-container">
+        <!-- The button to toggle the sidebar on mobile -->
+        <a href="javascript:void(0)" class="toggleNav" onclick="toggleNav()"><i class="fas fa-bars"></i></a>
+        <nav id="sidebar" class="sidebar">
+            <a href="#0" class="nav-to-blog-post">
+                2022-01-01
+            </a>
+        </nav>
 
+        <!-- Card for creating a new blog -->
+        <section class="new-blog">
+            <h1>Add blogpost</h1>
+            <form>
+                <label for="heading">Heading </label>
+                <input id="heading" type="text" minlength="2" required>
+                <label for="image">Image </label>
+                <input id="image" type="url" placeholder="URL" required>
+                <label for="content">Content </label>
+                <input id="content" type="text" minlength="10" required>
+                <button onclick="createBlogWithFrontend()" type="submit">Post blog</button>
+            </form>
+        </section>
+
+        <!-- Main section with all the blogs posted. Sorted by newest first -->
+        <main id="blog-posts" class="blog-posts">
+            <div id="0" class="blog-card">
+                <article class="blog-content">
+                    <h2 class="blog-header"
+                        style="background-image: url(https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80)">
+                        Placeholder header</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni,
+                    atque corrupti quia
+                    praesentium quis quibusdam vitae accusantium itaque illum rem voluptates voluptatibus maiores?
+                    Minima libero aliquam non accusamus, quasi exercitationem laborum eum harum provident blanditiis
+                    inventore sunt dolorem autem repudiandae ullam eligendi assumenda incidunt facere aliquid culpa
+                    omnis nulla.
+                </article>
+                <footer class="publish-date">2022-01-01<button>Remove blog post</button></footer>
+            </div>
+        </main>
+        <!-- TODO: Finns för att enkelt kunna testa runt. Ta bort senare.-->
+        <button onclick="clearLocalStorage()">Clear local storage</button>
+    </div>
+    <script src="javascript/blog.js"></script>
+    <script src="javascript/script.js"></script>
 </body>
 
 </html>
