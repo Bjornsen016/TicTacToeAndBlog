@@ -1,5 +1,6 @@
 /**
  * Represents a blog
+ *
  * @param {string} title - Title of the blog
  */
 class Blog {
@@ -48,7 +49,7 @@ class Blog {
 		}
 	}
 	/**
-	 * Saves the blog array to the localStorage
+	 * Saves the blog array and the current blog id to the localStorage
 	 */
 	saveBlogsToLocalStorage() {
 		localStorage.clear();
@@ -57,7 +58,7 @@ class Blog {
 		console.log(localStorage);
 	}
 	/**
-	 * Gets the blog list from localStorage if there is any, otherwise return
+	 * Gets the blog list and the next blog id from localStorage if there is any, otherwise return
 	 */
 	getBlogsFromLocalStorage() {
 		if (localStorage.length === 0) return;
