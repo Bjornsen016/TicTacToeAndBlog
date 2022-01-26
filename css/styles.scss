@@ -47,7 +47,11 @@ button:hover {
 		max-height: 500px;
 		padding: 0px;
 		width: 0px;
-		transition: 0.7s ease;
+		transition: 0.7s ease; /* Positionering av innehåll */
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		flex-wrap: nowrap;
 		.nav-to-blog-post {
 			margin-bottom: 0.3rem;
 		}
@@ -151,12 +155,7 @@ button:hover {
 			width: auto;
 			max-height: 700px;
 			overflow-y: auto;
-
-			/* Positionering av innehåll */
 			display: flex;
-			flex-direction: column;
-			align-content: center;
-			flex-wrap: nowrap;
 		}
 		.toggleNav {
 			display: none;
