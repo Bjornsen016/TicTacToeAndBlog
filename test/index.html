@@ -10,19 +10,15 @@
         mocha.setup('bdd'); // minimal setup
     </script>
     <!-- add chai -->
-    <script src="../(node_modules/chai/chai.js"></script>
-    <script>
-        // chai has a lot of stuff, let's make assert global
-        let assert = chai.assert;
-    </script>
+    <script src="../node_modules/chai/chai.js"></script>
 </head>
 
 <body>
 
-    <script src="javascript/blog.js"></script>
+    <script src="../javascript/blog.js"></script>
 
     <!-- the script with tests (describe, it...) -->
-    <script src="javascript/test.js"></script>
+    <script src="../javascript/test.js"></script>
 
     <!-- the element with id="mocha" will contain test results -->
     <div id="mocha"></div>
