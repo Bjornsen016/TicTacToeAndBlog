@@ -8,14 +8,30 @@ describe("Handle Blogs", function () {
 		blogList.blogId = 0;
 	});
 
-	describe("createBlog", () =>
-		it("Grows the amount of blogs in the blog array", function () {
-			const originalLength = blogList.blogs.length;
-			blogList.createBlog("något", "specci", "contentssssss");
+	describe("blog.createBlog", () =>
+		it(
+			"Grows the amount of blogs in the blog array",
+			function () {
+				const originalLength = blogList.blogs.length;
+				blogList.createBlog("titel", "url", "innehåll yo");
 
-			assert.equal(blogList.blogs.length, originalLength + 1);
-		}));
-	describe("removeBlog", () =>
+				assert.equal(blogList.blogs.length, originalLength + 1);
+			},
+			it("The last added blog is correct", function () {
+				blogList.createBlog("titel", "url", "innehåll yo");
+				let today = new Date().toLocaleDateString();
+				let lastIndex = blogList.blogs.length - 1;
+
+				assert.equal(blogList.blogs[lastIndex].header, "titel");
+				assert.equal(blogList.blogs[lastIndex].pic, "url");
+				assert.equal(blogList.blogs[lastIndex].text, "innehåll yo");
+				assert.equal(
+					blogList.blogs[lastIndex].publishDate.toLocaleDateString(),
+					today
+				);
+			})
+		));
+	describe("blog.removeBlog", () =>
 		it("Reduces the amount of blogs in the blog array", function () {
 			/* Skapar en blogg för att ta bort sedan */
 			blogList.createBlog("hej", "på dig", "något helt annat här");
@@ -24,6 +40,6 @@ describe("Handle Blogs", function () {
 			blogList.removeBlog(blogList.blogs[0].id);
 			assert.equal(blogList.blogs.length, originalLength - 1);
 		}));
-	describe("getBlogsFromLocalStorage", () => it("", function () {}));
-	describe("saveBlogsToLocalStorage", () => it("", function () {}));
+	describe("blog.getBlogsFromLocalStorage", () => it("", function () {}));
+	describe("blog.saveBlogsToLocalStorage", () => it("", function () {}));
 });
