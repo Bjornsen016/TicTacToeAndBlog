@@ -41,6 +41,11 @@ button:hover {
           transform: scale(110%);
 }
 
+button:active {
+  -webkit-transform: scale(90%);
+          transform: scale(90%);
+}
+
 .main-container {
   max-width: 960px;
   display: -ms-grid;

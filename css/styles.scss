@@ -23,6 +23,9 @@ button {
 button:hover {
 	transform: scale(110%);
 }
+button:active {
+	transform: scale(90%);
+}
 
 .main-container {
 	max-width: 960px;
