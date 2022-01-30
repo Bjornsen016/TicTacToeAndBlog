@@ -40,6 +40,26 @@ describe("Handle Blogs", function () {
 			blogList.removeBlog(blogList.blogs[0].id);
 			assert.equal(blogList.blogs.length, originalLength - 1);
 		}));
-	describe("blog.getBlogsFromLocalStorage", () => it("", function () {}));
+	describe("blog.getBlogsFromLocalStorage", () =>
+		it("Finds the correct saved blogs in localStorage", function () {
+			const today = new Date();
+			let newBlog = {
+				id: 2,
+				header: "Rubrik",
+				pic: "en url",
+				text: "lite text",
+				publishDate: today,
+			};
+			let newBlogList = [];
+			newBlogList.push(newBlog);
+			localStorage.setItem("blogs", JSON.stringify(newBlogList));
+
+			blogList.getBlogsFromLocalStorage();
+
+			assert.equal(blogList.blogs[0].id, newBlogList[0].id);
+			assert.equal(blogList.blogs[0].header, newBlogList[0].header);
+			assert.equal(blogList.blogs[0].pic, newBlogList[0].pic);
+			assert.equal(blogList.blogs[0].text, newBlogList[0].text);
+		}));
 	describe("blog.saveBlogsToLocalStorage", () => it("", function () {}));
 });
