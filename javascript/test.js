@@ -47,7 +47,7 @@ describe("Handle Blogs", function () {
 				id: 2,
 				header: "Rubrik",
 				pic: "en url",
-				text: "lite text",
+				text: "lite text för att fylla ut",
 				publishDate: today,
 			};
 			let newBlogList = [];
@@ -61,5 +61,15 @@ describe("Handle Blogs", function () {
 			assert.equal(blogList.blogs[0].pic, newBlogList[0].pic);
 			assert.equal(blogList.blogs[0].text, newBlogList[0].text);
 		}));
-	describe("blog.saveBlogsToLocalStorage", () => it("", function () {}));
+	describe("blog.saveBlogsToLocalStorage", () =>
+		it("Saves to localStorage correctly", function () {
+			assert.isNull(localStorage.getItem("blogs"));
+
+			blogList.createBlog("Rubrik", "URL", "lite text här denna gången");
+			blogList.saveBlogsToLocalStorage();
+
+			let localStorageBlogs = JSON.parse(localStorage.getItem("blogs"));
+
+			assert.equal(1, localStorageBlogs.length);
+		}));
 });
