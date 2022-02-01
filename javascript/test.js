@@ -1,11 +1,16 @@
 const assert = chai.assert;
 
 describe("Handle Blogs", function () {
-	let blogList = new Blog("test blogg");
+	let blogList = new Blog("test blogg", true);
 	beforeEach(() => {
-		localStorage.clear();
+		localStorage.removeItem("testBlogs");
+		localStorage.removeItem("testBlogId");
 		blogList.blogs = [];
 		blogList.blogId = 0;
+	});
+	this.afterAll(() => {
+		localStorage.removeItem("testBlogs");
+		localStorage.removeItem("testBlogId");
 	});
 
 	describe("blog.createBlog", () =>
@@ -13,12 +18,12 @@ describe("Handle Blogs", function () {
 			"Grows the amount of blogs in the blog array",
 			function () {
 				const originalLength = blogList.blogs.length;
-				blogList.createBlog("titel", "url", "innehåll yo");
+				blogList.createBlog("titel", "url", "innehåll yo", true);
 
 				assert.equal(blogList.blogs.length, originalLength + 1);
 			},
 			it("The last added blog is correct", function () {
-				blogList.createBlog("titel", "url", "innehåll yo");
+				blogList.createBlog("titel", "url", "innehåll yo", true);
 				let today = new Date().toLocaleDateString();
 				let lastIndex = blogList.blogs.length - 1;
 
@@ -34,10 +39,10 @@ describe("Handle Blogs", function () {
 	describe("blog.removeBlog", () =>
 		it("Reduces the amount of blogs in the blog array", function () {
 			/* Skapar en blogg för att ta bort sedan */
-			blogList.createBlog("hej", "på dig", "något helt annat här");
+			blogList.createBlog("hej", "på dig", "något helt annat här", true);
 			const originalLength = blogList.blogs.length;
 
-			blogList.removeBlog(blogList.blogs[0].id);
+			blogList.removeBlog(blogList.blogs[0].id, true);
 			assert.equal(blogList.blogs.length, originalLength - 1);
 		}));
 	describe("blog.getBlogsFromLocalStorage", () =>
@@ -52,9 +57,9 @@ describe("Handle Blogs", function () {
 			};
 			let newBlogList = [];
 			newBlogList.push(newBlog);
-			localStorage.setItem("blogs", JSON.stringify(newBlogList));
+			localStorage.setItem("testBlogs", JSON.stringify(newBlogList));
 
-			blogList.getBlogsFromLocalStorage();
+			blogList.getBlogsFromLocalStorage(true);
 
 			assert.equal(blogList.blogs[0].id, newBlogList[0].id);
 			assert.equal(blogList.blogs[0].header, newBlogList[0].header);
@@ -63,12 +68,12 @@ describe("Handle Blogs", function () {
 		}));
 	describe("blog.saveBlogsToLocalStorage", () =>
 		it("Saves to localStorage correctly", function () {
-			assert.isNull(localStorage.getItem("blogs"));
+			assert.isNull(localStorage.getItem("testBlogs"));
 
-			blogList.createBlog("Rubrik", "URL", "lite text här denna gången");
-			blogList.saveBlogsToLocalStorage();
+			blogList.createBlog("Rubrik", "URL", "lite text här denna gången", true);
+			blogList.saveBlogsToLocalStorage(true);
 
-			let localStorageBlogs = JSON.parse(localStorage.getItem("blogs"));
+			let localStorageBlogs = JSON.parse(localStorage.getItem("testBlogs"));
 
 			assert.equal(1, localStorageBlogs.length);
 		}));

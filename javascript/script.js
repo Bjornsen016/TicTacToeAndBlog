@@ -16,6 +16,7 @@ function createBlogWithFrontend() {
 }
 /**
  * Removes a specific blogpost. This attached to the remove button on each blogpost card.
+ * @param {int} id - the id of the blogpost to get removed.
  */
 function removeBlogFrontend(id) {
 	blogList.removeBlog(id);
