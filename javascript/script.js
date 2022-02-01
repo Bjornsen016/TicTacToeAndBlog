@@ -4,7 +4,9 @@ let title = document.getElementById("title");
 title.innerText = blogList.title;
 
 displayBlogPosts();
-
+/**
+ * Creates a new blogpost and refreshes the visuals afterwards.
+ */
 function createBlogWithFrontend() {
 	let heading = document.getElementById("heading").value;
 	let content = document.getElementById("content").value;
@@ -12,18 +14,25 @@ function createBlogWithFrontend() {
 	blogList.createBlog(heading, image, content);
 	displayBlogPosts();
 }
-
+/**
+ * Removes a specific blogpost. This attached to the remove button on each blogpost card.
+ */
 function removeBlogFrontend(id) {
 	blogList.removeBlog(id);
 	displayBlogPosts();
 }
 
+/**
+ * Refreshes the sites visuals, showing the newest blogpost highest.
+ * Also updates the sidebar navigation
+ */
 function displayBlogPosts() {
 	let blogPosts = document.getElementById("blog-posts");
 	let sidebar = document.getElementById("sidebar");
 
 	let htmlString = "";
 	let htmlStringSidebar = "";
+
 	for (let i = blogList.blogs.length - 1; i >= 0; i--) {
 		const blog = blogList.blogs[i];
 		const date = new Date(blog.publishDate);
@@ -40,6 +49,7 @@ function displayBlogPosts() {
 		})">Remove blog post</button></footer>
         </div>
         `;
+
 		htmlStringSidebar += /*html*/ `
         <a href="#${blog.id}" class="nav-to-blog-post">
             ${date.toLocaleDateString()}      
@@ -50,6 +60,9 @@ function displayBlogPosts() {
 	sidebar.innerHTML = htmlStringSidebar;
 }
 
+/**
+ * Toggles the navbar on mobile.
+ */
 function toggleNav() {
 	let sidebar = document.getElementById("sidebar").style;
 	if (sidebar.width != "auto") {
