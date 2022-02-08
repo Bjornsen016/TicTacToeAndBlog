@@ -1,3 +1,8 @@
+/**
+ * @file Handles the frontend of the blogsite. Creates and updates the HTML/CSS.
+ * @author Kim Björnsen Åklint
+ */
+
 import { Blog } from "./blog.js";
 
 let blogList = new Blog("Kims blogg");

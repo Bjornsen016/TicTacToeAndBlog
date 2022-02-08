@@ -1,3 +1,8 @@
+/**
+ * @file Tests blog.js. The Blog class and its different methods.
+ * @author Kim Björnsen Åklint
+ */
+
 import { Blog } from "./blog.js";
 const assert = chai.assert;
 
@@ -38,14 +43,28 @@ describe("Handle Blogs", function () {
 			})
 		));
 	describe("blog.removeBlog", () =>
-		it("Reduces the amount of blogs in the blog array", function () {
-			/* Skapar en blogg för att ta bort sedan */
-			blogList.createBlog("hej", "på dig", "något helt annat här", true);
-			const originalLength = blogList.blogs.length;
+		it(
+			"Reduces the amount of blogs in the blog array",
+			function () {
+				/* Skapar en blogg för att ta bort sedan */
+				blogList.createBlog("hej", "på dig", "något helt annat här", true);
+				const originalLength = blogList.blogs.length;
 
-			blogList.removeBlog(blogList.blogs[0].id, true);
-			assert.equal(blogList.blogs.length, originalLength - 1);
-		}));
+				blogList.removeBlog(blogList.blogs[0].id, true);
+				assert.equal(blogList.blogs.length, originalLength - 1);
+			},
+			it("Does not reduce the amout of blogs if the id does not exist or is an invalid argument", function () {
+				/* Skapar en blogg för att ta bort sedan */
+				blogList.createBlog("hej", "på dig", "något helt annat här", true);
+				const originalLength = blogList.blogs.length;
+
+				blogList.removeBlog(blogList.blogs[0].id + 1, true);
+				assert.equal(blogList.blogs.length, originalLength);
+
+				blogList.removeBlog("one", true);
+				assert.equal(blogList.blogs.length, originalLength);
+			})
+		));
 	describe("blog.getBlogsFromLocalStorage", () =>
 		it("Finds the correct saved blogs in localStorage", function () {
 			const today = new Date();

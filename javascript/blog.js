@@ -1,6 +1,12 @@
 /**
+ * @file Blog functionallity. Manages a bloglist and its blogs.
+ * @author Kim Björnsen Åklint
+ */
+
+/**
  * A class which handles one array with blogposts
  * @class
+ * @classdesc Handles and stores blogposts
  */
 export class Blog {
 	/**
@@ -53,6 +59,8 @@ export class Blog {
 	 * @param {bool} test - If it's a test or not. Default is false.
 	 */
 	removeBlog(id, test = false) {
+		if (id === undefined || id === null || isNaN(id)) return;
+
 		for (let i = 0; i < this.blogs.length; i++) {
 			if (this.blogs[i].id === id) {
 				this.blogs.splice(i, 1);
