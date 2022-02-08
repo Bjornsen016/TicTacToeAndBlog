@@ -1,3 +1,4 @@
+import { Blog } from "./blog.js";
 const assert = chai.assert;
 
 describe("Handle Blogs", function () {

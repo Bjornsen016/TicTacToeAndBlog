@@ -15,7 +15,7 @@
     <header id="title">Min Blogg</header>
     <div class="main-container">
         <!-- The button to toggle the sidebar on mobile -->
-        <a href="javascript:void(0)" class="toggleNav" onclick="toggleNav()"><i class="fas fa-bars"></i></a>
+        <a href="javascript:void(0)" class="toggleNav" id="toggleNav"><i class="fas fa-bars"></i></a>
         <nav id="sidebar" class="sidebar">
             <!-- <a href="#0" class="nav-to-blog-post">
                 2022-01-01
@@ -32,7 +32,7 @@
                 <input id="image" type="url" placeholder="URL" required>
                 <label for="content">Content </label>
                 <input id="content" type="text" minlength="10" required>
-                <button onclick="createBlogWithFrontend()" type="submit">Post blog</button>
+                <button id="createBlog" type="submit">Post blog</button>
             </form>
         </section>
 
@@ -54,10 +54,9 @@
             </div> -->
         </main>
         <!-- TODO: Finns för att enkelt kunna testa runt. Ta bort senare.-->
-        <button onclick="clearLocalStorage()">Clear local storage</button>
+        <button id="clearLocalStorage">Clear local storage</button>
     </div>
-    <script src="javascript/blog.js"></script>
-    <script src="javascript/script.js"></script>
+    <script type="module" src="javascript/script.js"></script>
 </body>
 
 </html>

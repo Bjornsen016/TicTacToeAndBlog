@@ -1,7 +1,16 @@
+import { Blog } from "./blog.js";
+
 let blogList = new Blog("Kims blogg");
 
 let title = document.getElementById("title");
 title.innerText = blogList.title;
+
+const createBlogButton = document.getElementById("createBlog");
+createBlogButton.addEventListener("click", createBlogWithFrontend);
+const clearLocalStorageButton = document.getElementById("clearLocalStorage");
+clearLocalStorageButton.addEventListener("click", clearLocalStorage);
+const toggleNavButton = document.getElementById("toggleNav");
+toggleNavButton.addEventListener("click", toggleNav);
 
 displayBlogPosts();
 /**

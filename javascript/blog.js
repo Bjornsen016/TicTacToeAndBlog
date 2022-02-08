@@ -2,7 +2,7 @@
  * A class which handles one array with blogposts
  * @class
  */
-class Blog {
+export class Blog {
 	/**
 	 * Creates a new array with blogs. Gets the list from localStorage if there is any.
 	 * @constructor

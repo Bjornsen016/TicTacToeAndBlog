@@ -46,7 +46,7 @@ button:active {
 		top: 55px;
 		flex-wrap: nowrap;
 		overflow-x: hidden;
-		overflow-y: scroll;
+		overflow-y: auto;
 		max-height: 500px;
 		padding: 0px;
 		width: 0px;
@@ -158,7 +158,6 @@ button:active {
 			top: 50px;
 			width: auto;
 			max-height: 700px;
-			overflow-y: auto;
 			display: flex;
 		}
 		.toggleNav {
