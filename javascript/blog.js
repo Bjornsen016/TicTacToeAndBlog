@@ -29,17 +29,15 @@ class Blog {
 	 * @param {bool} test - If it's a test or not. Default is false.
 	 */
 	createBlog(heading, picture, blogText, test = false) {
-		//TODO: Ha detta?
 		if (heading.length < 2 || picture.length < 3 || blogText.length < 10)
 			return;
 
-		const today = new Date();
 		let newBlog = {
 			id: this.blogId,
 			header: heading,
 			pic: picture,
 			text: blogText,
-			publishDate: today,
+			publishDate: new Date(),
 		};
 		this.blogId++;
 		this.blogs.push(newBlog);

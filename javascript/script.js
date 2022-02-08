@@ -29,36 +29,71 @@ function removeBlogFrontend(id) {
  */
 function displayBlogPosts() {
 	let blogPosts = document.getElementById("blog-posts");
+	blogPosts.innerHTML = "";
 	let sidebar = document.getElementById("sidebar");
-
-	let htmlString = "";
-	let htmlStringSidebar = "";
+	sidebar.innerHTML = "";
 
 	for (let i = blogList.blogs.length - 1; i >= 0; i--) {
 		const blog = blogList.blogs[i];
-		const date = new Date(blog.publishDate);
-		htmlString += /*html*/ `
-        <div id=${blog.id} class="blog-card">
-        <article class="blog-content">
-        <h2 class="blog-header" style="background-image: url(${blog.pic})">${
-			blog.header
-		}</h2>
-            ${blog.text}
-        </article>
-        <footer class="publish-date">${date.toLocaleDateString()}<button onclick="removeBlogFrontend(${
-			blog.id
-		})">Remove blog post</button></footer>
-        </div>
-        `;
 
-		htmlStringSidebar += /*html*/ `
-        <a href="#${blog.id}" class="nav-to-blog-post">
-            ${date.toLocaleDateString()}      
-        </a>
-        `;
+		const blogCard = createBlogCard(blog);
+		blogPosts.appendChild(blogCard);
+
+		const sidebarItem = createSidebarItem(blog);
+		sidebar.appendChild(sidebarItem);
 	}
-	blogPosts.innerHTML = htmlString;
-	sidebar.innerHTML = htmlStringSidebar;
+}
+
+/**
+ * Creates a blogcard with the information from the blog.
+ * @param {Blog} blog -
+ * @returns {HTMLDivElement} blogcard -
+ */
+function createBlogCard(blog) {
+	const blogCard = document.createElement("div");
+	const article = document.createElement("article");
+	const h2 = document.createElement("h2");
+	const footer = document.createElement("footer");
+	const button = document.createElement("button");
+
+	blogCard.classList.add("blog-card");
+	article.classList.add("blog-content");
+	h2.classList.add("blog-header");
+	footer.classList.add("publish-date");
+
+	const date = new Date(blog.publishDate);
+
+	h2.textContent = blog.header;
+	h2.style.backgroundImage = `url(${blog.pic})`;
+	article.textContent = blog.text;
+	article.prepend(h2);
+
+	button.textContent = "Remove blog post";
+	button.addEventListener("click", function () {
+		removeBlogFrontend(blog.id);
+	});
+
+	footer.textContent = date.toLocaleDateString();
+	footer.appendChild(button);
+
+	blogCard.id = blog.id;
+	blogCard.appendChild(article);
+	blogCard.appendChild(footer);
+
+	return blogCard;
+}
+/**
+ * Creates a sidebar item from a Blog object
+ * @param {Blog} blog
+ * @returns {HTMLAnchorElement} link
+ */
+function createSidebarItem(blog) {
+	const link = document.createElement("a");
+	link.href = `#${blog.id}`;
+
+	const date = new Date(blog.publishDate);
+	link.textContent = date.toLocaleDateString();
+	return link;
 }
 
 /**
