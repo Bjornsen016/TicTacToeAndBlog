@@ -97,7 +97,12 @@ export class Blog {
 	 * @returns {void}
 	 */
 	getBlogsFromLocalStorage(test = false) {
-		if (localStorage.length === 0) return;
+		if (
+			(test === false && localStorage.getItem("blogs") == null) ||
+			(test === true && localStorage.getItem("testBlogs") == null)
+		)
+			return;
+
 		this.blogs.splice(0, this.blogs.length);
 
 		if (test) {

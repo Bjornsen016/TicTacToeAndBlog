@@ -17,9 +17,12 @@
         <!-- The button to toggle the sidebar on mobile -->
         <a href="javascript:void(0)" class="toggleNav" id="toggleNav"><i class="fas fa-bars"></i></a>
         <nav id="sidebar" class="sidebar">
-            <!-- <a href="#0" class="nav-to-blog-post">
-                2022-01-01
-            </a> -->
+            <!-- Below is the template for how a nav-item should look. -->
+            <template>
+                <a href="#0" class="nav-to-blog-post">
+                    2022-01-01
+                </a>
+            </template>
         </nav>
 
         <!-- Card for creating a new blog -->
@@ -38,20 +41,23 @@
 
         <!-- Main section with all the blogs posted. Sorted by newest first -->
         <main id="blog-posts" class="blog-posts">
-            <!-- <div id="0" class="blog-card">
-                <article class="blog-content">
-                    <h2 class="blog-header"
-                        style="background-image: url(https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80)">
-                        Placeholder header</h2>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni,
-                    atque corrupti quia
-                    praesentium quis quibusdam vitae accusantium itaque illum rem voluptates voluptatibus maiores?
-                    Minima libero aliquam non accusamus, quasi exercitationem laborum eum harum provident blanditiis
-                    inventore sunt dolorem autem repudiandae ullam eligendi assumenda incidunt facere aliquid culpa
-                    omnis nulla.
-                </article>
-                <footer class="publish-date">2022-01-01<button>Remove blog post</button></footer>
-            </div> -->
+            <!-- Below is the template for how a blog-card should look. -->
+            <template>
+                <div id="0" class="blog-card">
+                    <article class="blog-content">
+                        <h2 class="blog-header"
+                            style="background-image: url(https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80)">
+                            Placeholder header</h2>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni,
+                        atque corrupti quia
+                        praesentium quis quibusdam vitae accusantium itaque illum rem voluptates voluptatibus maiores?
+                        Minima libero aliquam non accusamus, quasi exercitationem laborum eum harum provident blanditiis
+                        inventore sunt dolorem autem repudiandae ullam eligendi assumenda incidunt facere aliquid culpa
+                        omnis nulla.
+                    </article>
+                    <footer class="publish-date">2022-01-01<button>Remove blog post</button></footer>
+                </div>
+            </template>
         </main>
         <!-- TODO: Finns för att enkelt kunna testa runt. Ta bort senare.-->
         <button id="clearLocalStorage">Clear local storage</button>
