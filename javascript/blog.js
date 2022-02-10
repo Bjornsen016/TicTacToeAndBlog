@@ -14,6 +14,7 @@ export class Blog {
 	 * @constructor
 	 * @param {string} title - Title of the blog
 	 * @param {bool} test - If it's a test or not. Default is false.
+	 * @returns {Blog}
 	 */
 	constructor(title, test = false) {
 		this.title = title;
@@ -33,6 +34,7 @@ export class Blog {
 	 * @param  {URL} picture - Title picture URL
 	 * @param  {string} blogText - Content of the blogpost
 	 * @param {bool} test - If it's a test or not. Default is false.
+	 * @returns {void}
 	 */
 	createBlog(heading, picture, blogText, test = false) {
 		if (heading.length < 2 || picture.length < 3 || blogText.length < 10)
@@ -57,6 +59,7 @@ export class Blog {
 	 * Removes a blog post from the array
 	 * @param  {number} id - id of the blogpost to remove
 	 * @param {bool} test - If it's a test or not. Default is false.
+	 * @returns {void}
 	 */
 	removeBlog(id, test = false) {
 		if (id === undefined || id === null || isNaN(id)) return;
@@ -76,6 +79,7 @@ export class Blog {
 	/**
 	 * Saves the blog array and the current blog id to the localStorage
 	 * @param {bool} test - If it's a test or not. Default is false.
+	 * @returns {void}
 	 */
 	saveBlogsToLocalStorage(test = false) {
 		if (test) {
@@ -90,6 +94,7 @@ export class Blog {
 	/**
 	 * Gets the blog list and the next blog id from localStorage if there is any, otherwise return
 	 * @param {bool} test - If it's a test or not. Default is false.
+	 * @returns {void}
 	 */
 	getBlogsFromLocalStorage(test = false) {
 		if (localStorage.length === 0) return;

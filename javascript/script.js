@@ -20,6 +20,7 @@ toggleNavButton.addEventListener("click", toggleNav);
 displayBlogPosts();
 /**
  * Creates a new blogpost and refreshes the visuals afterwards.
+ * @returns {void}
  */
 function createBlogWithFrontend() {
 	let heading = document.getElementById("heading").value;
@@ -31,6 +32,7 @@ function createBlogWithFrontend() {
 /**
  * Removes a specific blogpost. This attached to the remove button on each blogpost card.
  * @param {int} id - the id of the blogpost to get removed.
+ * @returns {void}
  */
 function removeBlogFrontend(id) {
 	blogList.removeBlog(id);
@@ -40,6 +42,7 @@ function removeBlogFrontend(id) {
 /**
  * Refreshes the sites visuals, showing the newest blogpost highest.
  * Also updates the sidebar navigation
+ * @returns {void}
  */
 function displayBlogPosts() {
 	let blogPosts = document.getElementById("blog-posts");
@@ -61,7 +64,7 @@ function displayBlogPosts() {
 /**
  * Creates a blogcard with the information from the blog.
  * @param {Blog} blog -
- * @returns {HTMLDivElement} blogcard -
+ * @returns {HTMLDivElement} A blog card.
  */
 function createBlogCard(blog) {
 	const blogCard = document.createElement("div");
@@ -99,7 +102,7 @@ function createBlogCard(blog) {
 /**
  * Creates a sidebar item from a Blog object
  * @param {Blog} blog
- * @returns {HTMLAnchorElement} link
+ * @returns {HTMLAnchorElement} An anchor tag filled with a link to the blogposts id in HTML and the publish date of that post.
  */
 function createSidebarItem(blog) {
 	const link = document.createElement("a");
@@ -112,6 +115,7 @@ function createSidebarItem(blog) {
 
 /**
  * Toggles the navbar on mobile.
+ * @returns {void}
  */
 function toggleNav() {
 	let sidebar = document.getElementById("sidebar").style;
