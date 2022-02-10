@@ -1,0 +1,252 @@
+* {
+  padding: 1rem;
+}
+
+html {
+  background: #0cb49c;
+  background: radial-gradient(circle, #0cb49c 0%, #1c9fa1 49%, #00d4ff 100%);
+  padding: 0;
+}
+
+body {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+body button {
+  border-radius: 30px;
+  color: rgba(255, 255, 255, 0.952);
+  text-shadow: 0px 3px 3px #5f8a88;
+  font-size: 1rem;
+  border: solid 1px;
+}
+
+body header {
+  font-size: 3rem;
+  color: transparent;
+  background: #ffffff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(95, 138, 136, 0.5);
+  padding: 0px;
+}
+
+body .turn-indicator {
+  grid-area: turn-indicator;
+  font-size: 2rem;
+  color: transparent;
+  background: #ffffff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(95, 138, 136, 0.5);
+}
+
+.main {
+  display: -ms-grid;
+  display: grid;
+  padding: 0;
+      grid-template-areas: "scoreboard" "game-board" "game-board" "game-board";
+  justify-items: center;
+}
+
+.main .game-board {
+  -webkit-box-shadow: 0px 0px 6px 6px #8debe6;
+          box-shadow: 0px 0px 6px 6px #8debe6;
+  background-color: #004e53;
+  border: solid 1px rgba(255, 255, 255, 0.342);
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  grid-area: game-board;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 200px 200px;
+      grid-template-columns: 200px 200px 200px;
+  -ms-grid-rows: 200px 200px 200px;
+      grid-template-rows: 200px 200px 200px;
+  height: 600px;
+  width: 600px;
+}
+
+.main .game-board .square {
+  -webkit-box-shadow: 0px 0px 4px 2px rgba(45, 212, 212, 0.92) inset;
+          box-shadow: 0px 0px 4px 2px rgba(45, 212, 212, 0.92) inset;
+  /* background-color: rgb(133, 237, 245); */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Segoe UI";
+  font-size: 200px;
+  color: transparent;
+  background: #ffffff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(95, 138, 136, 0.5);
+}
+
+.main .scoreboard {
+  color: transparent;
+  background: #ffffff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(95, 138, 136, 0.5);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: scoreboard;
+  display: -ms-grid;
+  display: grid;
+  padding: 0px;
+  -ms-grid-columns: 1fr 36px 1fr;
+      grid-template-columns: 1fr 36px 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main .scoreboard h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main .scoreboard .player {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 252px;
+}
+
+.main .scoreboard .player .name,
+.main .scoreboard .player .score,
+.main .scoreboard .player .symbol {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2px;
+  word-wrap: break-word;
+}
+
+.main .scoreboard .player .symbol {
+  font-size: 4rem;
+  font-family: "Segoe UI";
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  border-radius: 10px;
+  background-color: #d8cacae8;
+  margin: 35% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 670px) {
+  body button {
+    padding: 0.5rem;
+  }
+  body header {
+    font-size: 2rem;
+  }
+  body .turn-indicator {
+    font-size: 1.5rem;
+  }
+  .main .game-board {
+    -ms-grid-columns: 100px 100px 100px;
+        grid-template-columns: 100px 100px 100px;
+    -ms-grid-rows: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+    height: 300px;
+    width: 300px;
+  }
+  .main .game-board .square {
+    font-size: 100px;
+  }
+  .main .scoreboard h1 {
+    font-size: 1.5rem;
+  }
+  .main .scoreboard .player .name,
+  .main .scoreboard .player .score,
+  .main .scoreboard .player .symbol {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 2px;
+    word-wrap: break-word;
+  }
+  .main .scoreboard .player .symbol {
+    font-size: 3rem;
+    font-family: "Segoe UI";
+  }
+  .modal-content {
+    margin: 45% 0;
+    /* 15% from the top and centered */
+  }
+}
+/*# sourceMappingURL=styles.css.map */

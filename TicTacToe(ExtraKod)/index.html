@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <title>Tic tac toe</title>
+</head>
+
+
+<body>
+    <header>TIC TAC TOE</header>
+    <div id="winOrDrawModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="winOrDrawText">Some text in the Modal..</p>
+        </div>
+
+    </div>
+    <section class="main">
+        <section class="scoreboard" id="scoreboard">
+            <div id="playerOne" class="player">
+                <div class="name" id="playerOneName" data-editable>
+                </div>
+                <div class="symbol">X</div>
+                <div class="score" id="playerOneScore"></div>
+            </div>
+            <h1>-</h1>
+            <div id="playerTwo" class="player">
+                <div class="name" id="playerTwoName" data-editable></div>
+                <div class="symbol">O</div>
+                <div class="score" id="playerTwoScore"></div>
+            </div>
+
+        </section>
+        <section class="game-board" id=game-board>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </section>
+
+    </section>
+    <section class="turn-indicator" id="turn-indicator">
+    </section>
+    <button id="toggleBotBtn" style="background-color: red">Toggle Bot!</button>
+    <script type="module" src="javascript/script.js"></script>
+</body>
+
+</html>
