@@ -48,7 +48,6 @@ export class Game {
 		this.filledSpots++;
 		if (this.checkWin()) {
 			this.currentPlayer.score++;
-			/* this.resetGame(); */
 			this.saveToLocalStorage();
 			return true;
 		}
