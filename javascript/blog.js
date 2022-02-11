@@ -6,6 +6,9 @@
 /**
  * A class which handles one array with blogposts
  * @class
+ * @property {Array.<blogPosts>} blog - An array of blogposts
+ * @property {number} blogId - Id of the next to be published blogpost
+ * @property {string} title - Title of the blog
  * @classdesc Handles and stores blogposts
  */
 export class Blog {
@@ -98,8 +101,8 @@ export class Blog {
 	 */
 	getBlogsFromLocalStorage(test = false) {
 		if (
-			(test === false && localStorage.getItem("blogs") == null) ||
-			(test === true && localStorage.getItem("testBlogs") == null)
+			(!test && localStorage.getItem("blogs") == null) ||
+			(test && localStorage.getItem("testBlogs") == null)
 		)
 			return;
 
@@ -107,13 +110,14 @@ export class Blog {
 
 		if (test) {
 			let storedBlogs = JSON.parse(localStorage.getItem("testBlogs"));
-			if (storedBlogs == null) return;
+
 			storedBlogs.forEach((blog) => {
 				this.blogs.push(blog);
 			});
 			this.blogId = +localStorage.getItem("testBlogId");
 		} else {
 			let storedBlogs = JSON.parse(localStorage.getItem("blogs"));
+
 			storedBlogs.forEach((blog) => {
 				this.blogs.push(blog);
 			});

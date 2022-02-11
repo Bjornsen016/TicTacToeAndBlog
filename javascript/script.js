@@ -12,8 +12,6 @@ title.innerText = blogList.title;
 
 const createBlogButton = document.getElementById("createBlog");
 createBlogButton.addEventListener("click", createBlogWithFrontend);
-const clearLocalStorageButton = document.getElementById("clearLocalStorage");
-clearLocalStorageButton.addEventListener("click", clearLocalStorage);
 const toggleNavButton = document.getElementById("toggleNav");
 toggleNavButton.addEventListener("click", toggleNav);
 
@@ -126,22 +124,4 @@ function toggleNav() {
 		sidebar.width = "0px";
 		sidebar.padding = "0px";
 	}
-}
-
-//TODO: För att kunna ta bort enkelt när jag testar runt
-function clearLocalStorage() {
-	blogList.blogs = [];
-	localStorage.clear();
-	blogList.blogId = 0;
-	blogList.createBlog(
-		"Placeholder header",
-		"https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80",
-		`Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni,
-    atque corrupti quia
-    praesentium quis quibusdam vitae accusantium itaque illum rem voluptates voluptatibus maiores?
-    Minima libero aliquam non accusamus, quasi exercitationem laborum eum harum provident blanditiis
-    inventore sunt dolorem autem repudiandae ullam eligendi assumenda incidunt facere aliquid culpa
-    omnis nulla.`
-	);
-	displayBlogPosts();
 }
