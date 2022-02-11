@@ -206,8 +206,8 @@ button:active {
 @media only screen and (min-width: 768px) {
   .main-container {
         grid-template-areas: "sidebar new-blog" "sidebar blog-posts";
-    -ms-grid-columns: 0.8fr 3fr;
-        grid-template-columns: 0.8fr 3fr;
+    -ms-grid-columns: 0.8fr minmax(560px, 3fr);
+        grid-template-columns: 0.8fr minmax(560px, 3fr);
   }
   .main-container .sidebar {
     /* Positionering */

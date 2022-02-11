@@ -146,7 +146,7 @@ button:active {
 		grid-template-areas:
 			"sidebar new-blog"
 			"sidebar blog-posts";
-		grid-template-columns: 0.8fr 3fr;
+		grid-template-columns: 0.8fr minmax(560px, 3fr);
 
 		.sidebar {
 			/* Positionering */
