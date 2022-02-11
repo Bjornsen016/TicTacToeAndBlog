@@ -182,6 +182,7 @@ button:active {
 
 .main-container .blog-posts .blog-card .blog-content {
   color: black;
+  word-wrap: break-word;
 }
 
 .main-container .blog-posts .blog-card img {
