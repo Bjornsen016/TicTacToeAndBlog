@@ -50,8 +50,8 @@ button:active {
   max-width: 960px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 290px;
-      grid-template-rows: 290px;
+  /* 
+	grid-template-rows: 290px; */
       grid-template-areas: "new-blog" "blog-posts";
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
@@ -135,6 +135,11 @@ button:active {
   display: grid;
   -ms-grid-columns: 80px 1fr;
       grid-template-columns: 80px 1fr;
+}
+
+.main-container .new-blog form #content {
+  width: 95%;
+  resize: none;
 }
 
 .main-container .new-blog form button {

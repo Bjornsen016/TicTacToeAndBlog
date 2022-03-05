@@ -80,7 +80,8 @@ function createBlogCard(blog) {
 
 	h2.textContent = blog.header;
 	h2.style.backgroundImage = `url(${blog.pic})`;
-	article.textContent = blog.text;
+
+	article.innerHTML = blog.text.replace(/\n\r?/g, "<br />");
 	article.prepend(h2);
 
 	button.textContent = "Remove blog post";

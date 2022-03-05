@@ -29,8 +29,8 @@ button:active {
 
 .main-container {
 	max-width: 960px;
-	display: grid;
-	grid-template-rows: 290px;
+	display: grid; /* 
+	grid-template-rows: 290px; */
 	grid-template-areas:
 		"new-blog"
 		"blog-posts";
@@ -89,6 +89,10 @@ button:active {
 		form {
 			display: grid;
 			grid-template-columns: 80px 1fr;
+			#content {
+				width: 95%;
+				resize: none;
+			}
 			button {
 				grid-column: 1 / 3;
 				justify-self: center;
